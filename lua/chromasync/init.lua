@@ -1,3 +1,4 @@
+local highlights = require("chromasync.highlights")
 local template = require("chromasync.template")
 local colors = require("chromasync.colors")
 
@@ -11,9 +12,16 @@ M.load = function()
 		return
 	end
 
-	for k, v in pairs(colors) do
-		print(k, v)
+	vim.g.colors_name = "chromasync"
+
+	vim.cmd.highlight("clear")
+
+	if vim.fn.exists("syntax_on") then
+		vim.cmd("syntax reset")
 	end
+
+	-- Sets all the highlights
+	highlights.apply(colors)
 end
 
 return M
