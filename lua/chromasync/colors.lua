@@ -9,32 +9,15 @@ if not util.file_exists(config.CHROMASYNC_OUT_FILE) then
 	-- pipe:close()
 end
 
--- If now the file exists, return its content
+-- If now the file exists, returns its content
 if util.file_exists(config.CHROMASYNC_OUT_FILE) then
 	return vim.fn.readfile(config.CHROMASYNC_OUT_FILE)
 end
 
--- Returns a default palette
--- TODO: implement the default palette
-return {
-	bg = "#000000",
-	fg = "#ffffff",
+-- File not found, raise an error
+vim.notify(
+	"Can't load the chromasync colorscheme cause " .. config.CHROMASYNC_OUT_FILE .. " doesn't exists",
+	vim.log.levels.ERROR
+)
 
-	blk = "#ffffff",
-	red = "#ffffff",
-	grn = "#ffffff",
-	ylw = "#ffffff",
-	blu = "#ffffff",
-	mag = "#ffffff",
-	cyn = "#ffffff",
-	wht = "#ffffff",
-
-	blkh = "#ffffff",
-	redh = "#ffffff",
-	grnh = "#ffffff",
-	ylwh = "#ffffff",
-	bluh = "#ffffff",
-	magh = "#ffffff",
-	cynh = "#ffffff",
-	whth = "#ffffff",
-}
+return nil
