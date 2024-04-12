@@ -1,10 +1,8 @@
-local template = require("chromasync.template")
+local colors = require("chromasync.colors")
 
 local M = {}
 
 M.load = function()
-	local colors = require("chromasync.template").load()
-
 	-- Checks if colors are loaded correctly
 	if colors == nil then
 		return
@@ -19,8 +17,7 @@ M.load = function()
 	end
 
 	-- Sets all the highlights
-	local highlights = require("chromasync.highlights")
-	highlights.apply(colors)
+	require("chromasync.highlights").apply(colors)
 end
 
 return M
