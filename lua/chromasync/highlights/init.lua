@@ -14,15 +14,15 @@ local hi_table = function(table)
 	end
 end
 
+local modules = {
+	"nvim", "treesitter", "todo",
+}
+
 M.apply = function(colors)
-	hi_table({
-		Normal = {
-			fg = colors.fg,
-			bg = colors.bg,
-			--ctermfg = colors.fg,
-			--ctermbg = colors.bg,
-		},
-	})
+	for _, module in pairs(modules) do
+		local hi_gen = require("chromasync.highlights." .. module)
+		hi_table(hi_gen(colors))
+	end
 end
 
 return M
