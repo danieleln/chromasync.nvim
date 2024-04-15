@@ -18,6 +18,9 @@ M.load = function()
 
 	-- Sets all the highlights
 	require("chromasync.highlights").apply(colors)
+
+	-- Watches for changes to the palette file
+	require("chromasync.watchdog").setup()
 end
 
 return M
