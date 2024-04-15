@@ -3,6 +3,7 @@ local config = require("chromasync.config")
 local util = require("chromasync.util")
 
 local M = {}
+local did_setup_run = false
 
 local chromasync_reload = function()
 	vim.fn.system("chromasync -q reload -t='" .. config.FILE_NAME .. "' --no-script")
@@ -43,6 +44,11 @@ end
 
 -- Loads the color palette
 M.load = function()
+	if not did_setup_run then
+		M.setup()
+		did_setup_run = true
+	end
+
 	-- Reloads the theme if the output file doesn't exists yet
 	if not util.file_exists(config.CHROMASYNC_OUT_FILE) then
 		chromasync_reload()
