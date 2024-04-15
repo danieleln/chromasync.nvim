@@ -6,22 +6,21 @@ local M = {}
 local did_setup_run = false
 
 local chromasync_reload = function()
-	vim.fn.system("chromasync -q reload -t='" .. config.FILE_NAME .. "' --no-script")
+	vim.fn.system(string.format(
+		"chromasync -q reload -t='%s' --no-script",
+		config.CHROMASYNC_TEMPLATE_FILE
+	))
 end
 
 -- Copies the color template to chromasync template dir
 M.setup = function()
-	-- Checks if the destination directory exists
+	-- Checks if the template directory exists
 	if vim.fn.isdirectory(config.CHROMASYNC_TEMPLATES_DIR) == 0 then
-		vim.fn.system("mkdir " .. config.CHROMASYNC_TEMPLATES_DIR)
-
-		if vim.fn.isdirectory(config.CHROMASYNC_TEMPLATES_DIR) == 0 then
-			vim.notify(
-				"An error occurred while writing the template to `" .. config.CHROMASYNC_TEMPLATE_FILE .. "`",
-				vim.log.levels.WARN
-			)
-			return nil
-		end
+		vim.notify(
+			"An error occurred while writing the template to `" .. config.CHROMASYNC_TEMPLATE_FILE .. "`",
+			vim.log.levels.WARN
+		)
+		return nil
 	end
 
 	-- Writes the template to config.CHROMASYNC_TEMPLATE_FILE
@@ -44,6 +43,7 @@ end
 
 -- Loads the color palette
 M.load = function()
+	-- Runs the setup if it didn't already
 	if not did_setup_run then
 		M.setup()
 		did_setup_run = true

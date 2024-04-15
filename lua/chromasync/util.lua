@@ -1,5 +1,13 @@
 local M = {}
 
+-- Creates a directory if it doesn't exist
+M.mkdir = function(path)
+	if vim.fn.isdirectory(path) == 0 then
+		vim.fn.system("mkdir -p " .. path)
+	end
+end
+
+-- Checks if a file exists
 M.file_exists = function(path)
 	local stat = vim.loop.fs_stat(path)
 	return stat and stat.type == "file"

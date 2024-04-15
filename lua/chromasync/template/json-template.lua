@@ -1,5 +1,8 @@
-return [[
+local config = require("chromasync.config")
+
+return string.format([[
 @fmt: #hex
+@dir: %s
 {
   "bg": "{BG}",
   "fg": "{FG}",
@@ -34,4 +37,4 @@ return [[
   "fg60bg": "{FG:60:BG}",
   "fg50bg": "{FG:50:BG}"
 }
-]]
+]], config.CHROMASYNC_OUT_DIR)
