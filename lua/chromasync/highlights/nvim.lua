@@ -11,13 +11,17 @@ return function(colors)
 		Conceal = s.Comment,
 
 		-- Cursor
-		Cursor  = { fg = p.bg, bg = p.fg },
-		lCursor = { link="Cursor" },
+		Cursor     = { fg = p.bg, bg = p.red },
+		-- lCursor    = { link = "Normal" },
+		-- Cursor     = {},
+		-- lCursor    = {},
+		-- CursorIM   = { link = "Cursor" },
+		-- TermCursor = { reverse = true },
 
 		-- Highlight lines/cols
-		CursorLine   = { bg = p.bg70fg },
-		CursorColumn = { bg = p.bg70fg },
-		ColorColumn  = { bg = p.bg80fg },
+		CursorLine   = { bg = p.bg80fg },
+		CursorColumn = { bg = p.bg80fg },
+		ColorColumn  = { bg = p.bg90fg },
 
 		-- Line numbers
 		LineNr       = p.bg50fg,

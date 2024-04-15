@@ -23,6 +23,9 @@ M.apply = function(colors)
 		local hi_gen = require("chromasync.highlights." .. module)
 		hi_table(hi_gen(colors))
 	end
+	hi_table({
+		Cursor = { fg = colors.palette.bg, bg = colors.palette.red },
+	})
 end
 
 return M
