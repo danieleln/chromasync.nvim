@@ -1,8 +1,9 @@
-local colors = require("chromasync.colors")
-
 local M = {}
 
 M.load = function()
+	package.loaded["chromasync.colors"] = nil
+	local colors = require("chromasync.colors")
+
 	-- Checks if colors are loaded correctly
 	if colors == nil then
 		return

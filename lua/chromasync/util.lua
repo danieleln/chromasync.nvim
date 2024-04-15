@@ -23,4 +23,18 @@ M.as_fg_color = function(group_table, colors)
 	return t
 end
 
+-- Reads the content of a file
+M.read_file = function(path)
+	local file = io.open(path, "rb")
+
+	if not file then
+		return nil
+	end
+
+	local content = file:read("*all")
+	file:close()
+
+	return content
+end
+
 return M
