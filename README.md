@@ -6,7 +6,7 @@ Neovim colorscheme that syncs to
 
 ## Installation
 Installation highly depends on the package manager.
-For [https://github.com/folke/lazy.nvim](lazy.nvim):
+For [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
 {
   "danieleln/chromasync.nvim",
