@@ -14,11 +14,10 @@ M.syntax = {
 	Comment = palette.fg50bg,
 
 	Preprocessor = palette.cyn,
-	Statement    = palette.mag,
 	Keyword      = palette.mag,
-	Func         = palette.bluh,
-	Class        = palette.cyn,
-	Function     = p.bluh,
+	Statement    = palette.magh,
+	Function     = palette.bluh,
+	Special      = palette.fg80bg,
 
 	Identifier = palette.fg,
 	Type       = palette.red,
@@ -26,7 +25,7 @@ M.syntax = {
 	Constant   = palette.ylw,
 	String     = palette.grn,
 	Number     = palette.ylwh,
-	Boolean    = p.ylw,
+	Boolean    = palette.ylw,
 
 	Exception = palette.red,
 	Operator = palette.cynh,
@@ -35,7 +34,7 @@ M.syntax = {
 	Delimiter = palette.cynh,
 	Debug = palette.red,
 	Link = palette.blu,
-	Punctuation = p.cynh,
+	Punctuation = palette.cynh,
 }
 
 M.level = {

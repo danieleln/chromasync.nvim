@@ -31,14 +31,52 @@ return function(colors)
 		CursorLineSign = { link="SignColumn" },
 		CursorLineFold = { link="FoldColumn" },
 
-		-- Code highlighting
-		Comment    = s.Comment,
-		Constant   = s.Constant,
+		-- Comments
+		Comment = { fg = s.Comment, italic = true },
+
+		-- Data types
+		Constant  = s.Constant,
+		Boolean   = s.Boolean,
+		String    = s.String,
+		Character = s.String,
+		Number    = s.Number,
+		Float     = { link = 'Number' },
+
+		-- Preprocessor
+		PreProc   = s.Preprocessor,
+		Define    = { link = 'PreProc' },
+		Include   = { link = 'PreProc' },
+		Macro     = { link = 'PreProc' },
+		PreCondit = { link = 'PreProc' },
+
+		-- Identifiers
 		Identifier = s.Identifier,
-		Statement  = s.Statement,
-		PreProc    = s.Preprocessor,
-		Type       = s.Type,
-		Special    = p.redh,
+		Function   = s.Function,
+
+		-- Statements
+		Statement   = s.Statement,
+		Conditional = { link = 'Statement' },
+		Exception   = { link = 'Statement' },
+		Keyword     = { link = 'Statement' },
+		Label       = { link = 'Statement' },
+		Operator    = { link = 'Statement' },
+		Repeat      = { link = 'Statement' },
+
+		-- Types
+		Type         = s.Type,
+		Typedef      = { link = 'Type' },
+		StorageClass = { link = 'Type' },
+		Structure    = { link = 'Type' },
+
+		-- Special
+		Special        = s.Special,
+		Debug          = { link = 'Special' },
+		Delimiter      = { link = 'Special' },
+		SpecialChar    = { link = 'Special' },
+		SpecialComment = { link = 'Special' },
+		Tag            = { link = 'Special' },
+
+		-- Misc
 		Underlined = { fg = p.mag, underline=true },
 
 		-- DiffText =     { bg = 'Red', bold = true,           ctermbg = 'Red', cterm = { bold = true } },
@@ -82,30 +120,6 @@ return function(colors)
 		-- Error =                { fg = 'White', bg = 'Red',   ctermfg = 'White', ctermbg = 'Red' },
 		-- Todo =                 { fg = 'Blue', bg = 'Yellow', ctermfg = 'Black', ctermbg = 'Yellow' },
 		--
-		-- String =         { link = 'Constant' },
-		-- Character =      { link = 'Constant' },
-		-- Number =         { link = 'Constant' },
-		-- Boolean =        { link = 'Constant' },
-		-- Float =          { link = 'Number' },
-		-- Function =       { link = 'Identifier' },
-		-- Conditional =    { link = 'Statement' },
-		-- Repeat =         { link = 'Statement' },
-		-- Label =          { link = 'Statement' },
-		-- Operator =       { link = 'Statement' },
-		-- Keyword =        { link = 'Statement' },
-		-- Exception =      { link = 'Statement' },
-		-- Include =        { link = 'PreProc' },
-		-- Define =         { link = 'PreProc' },
-		-- Macro =          { link = 'PreProc' },
-		-- PreCondit =      { link = 'PreProc' },
-		-- StorageClass =   { link = 'Type' },
-		-- Structure =      { link = 'Type' },
-		-- Typedef =        { link = 'Type' },
-		-- Tag =            { link = 'Special' },
-		-- SpecialChar =    { link = 'Special' },
-		-- Delimiter =      { link = 'Special' },
-		-- SpecialComment = { link = 'Special' },
-		-- Debug =          { link = 'Special' },
 		-- stylua: ignore end
 	}, colors)
 end
