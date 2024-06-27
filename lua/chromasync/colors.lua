@@ -1,5 +1,5 @@
--- Loads color palette from the template
-local palette = require("chromasync.template").load()
+-- Loads color palette from the blueprint instance
+local palette = require("chromasync.blueprint").load()
 
 -- Checks if colors where parsed correctly
 if palette == nil then
